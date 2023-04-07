@@ -1,13 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+nav section {
+  font-family: "Delius Swash Caps", cursive;
+}
+
+.website-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.website {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: #fcd34d;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.website:hover {
+  transform: scale(1.1);
+}
+
+.website.open {
+  animation: website-animation 1s ease-in-out forwards;
+}
+
+.circle {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrow-line {
+  width: 40px;
+  height: 3px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  transform-origin: left center;
+  animation: arrow-line-animation 0.5s ease-in-out infinite;
+}
+
+.arrow-point {
+  position: absolute;
+  top: -5px;
+  left: 35px;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg);
+  animation: arrow-point-animation 0.5s ease-in-out infinite;
+}
+
+@keyframes website-animation {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  50% {
+    width: 50px;
+    height: 50px;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+
+@keyframes arrow-line-animation {
+  0% {
+    width: 40px;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 40px;
+  }
+}
+
+@keyframes arrow-point-animation {
+  0% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(45deg) translate(5px, -5px);
+  }
+  100% {
+    transform: rotate(45deg) translate(0, 0);
+  }
 }
